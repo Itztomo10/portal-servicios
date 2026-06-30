@@ -1,0 +1,172 @@
+/* Variables */
+:root {
+    --color-principal: #411961;
+    --color-secundario: #f2d7f8;
+    --color-texto: #922bce;
+    --color-fondo: #fff8f8;
+    --espacio: 20px;
+}
+
+/* Reseteo para evitar problemas de espacio */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Logramos que exista un pequeño espacio entre nuestro contenido y la parte sup de la página. */
+html {
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
+}
+
+/* Diseño con CSS Grid*/
+body {
+    display: grid;
+    grid-template-areas:
+        "encabezado"
+        "navegacion"
+        "principal"
+        "pie";
+    gap: var(--espacio);
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-size: 16px;
+}
+
+/* ÁREAS PRINCIPALES */
+.encabezado-sitio {
+    grid-area: encabezado;
+    padding: 30px;
+    text-align: center;
+    background-color: var(--color-fondo);
+    border-bottom: 4px solid var(--color-principal);
+}
+
+.encabezado-sitio h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: var(--color-principal);
+}
+
+.encabezado-sitio p {
+    font-size: 18px;
+}
+
+/* Menú de navegación con Flexbox */
+.navegacion-sitio {
+    grid-area: navegacion;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: var(--color-secundario);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
+
+.navegacion-sitio a {
+    text-decoration: none;
+    color: var(--color-principal);
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.navegacion-sitio a:hover {
+    background-color: var(--color-principal);
+    color: #ffffffbb;
+}
+
+.contenido-principal {
+    grid-area: principal;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Espaciado para las secciones */
+.seccion-texto {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(235, 177, 247, 0.84);
+}
+
+.contenido-principal h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--color-principal);
+}
+
+.seccion-texto p {
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/* TARJETAS */
+.grid-servicios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.tarjeta-servicio {
+    background-color: white;
+    border: 1px solid #cb94e1;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(87, 2, 126, 0.05);
+}
+
+.tarjeta-servicio img {
+    max-width: 150px;
+    margin-bottom: 15px;
+}
+
+/* Botón en las tarjetas */
+.btn-servicio {
+    display: inline-block;
+    background-color: var(--color-principal);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.btn-servicio:hover {
+    background-color: #951dea;
+}
+
+.pie-sitio {
+    grid-area: pie;
+    text-align: center;
+    padding: 30px;
+    background-color: var(--color-texto);
+    color: white;
+}
+
+/* DISEÑO RESPONSIVO */
+
+@media (min-width: 768px) {
+    .grid-servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
